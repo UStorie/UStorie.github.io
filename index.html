@@ -1,368 +1,56 @@
 <!doctype html>
 <html lang="fr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="index,follow">
-<meta name="description" content="UStorie — applications et expériences numériques : BARNARMA, LiDAR France et mémoire Meuse-Argonne 1918.">
-<title>UStorie</title>
-
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1218">
+<meta name="description" content="UStorie : BARNARMA, LiDAR France et mémoire Meuse-Argonne 1918. Trois expériences numériques indépendantes.">
+<title>USTORIE — Terrain, technologie & mémoire</title>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2649279265159925" crossorigin="anonymous"></script>
-
 <style>
-:root{
-  --bg:#07111b;
-  --bg2:#0d1b29;
-  --text:#edf5fb;
-  --muted:#a7bacb;
-  --accent:#53d8ff;
-  --accent2:#e7ba68;
-  --shadow:0 22px 50px rgba(0,0,0,.35);
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;
-}
-*{box-sizing:border-box}
-html,body{margin:0;min-height:100%}
-body{
-  color:var(--text);
-  background:
-    radial-gradient(circle at 18% 18%, rgba(83,216,255,.12), transparent 24%),
-    radial-gradient(circle at 83% 23%, rgba(231,186,104,.09), transparent 25%),
-    linear-gradient(180deg, rgba(6,13,20,.2), rgba(6,13,20,.65)),
-    url('https://images.unsplash.com/photo-1516900557549-41557d405adf?auto=format&fit=crop&w=1600&q=80') center/cover fixed no-repeat,
-    linear-gradient(160deg,var(--bg),var(--bg2));
-}
-body::before{
-  content:"";
-  position:fixed; inset:0; pointer-events:none;
-  background:linear-gradient(180deg, rgba(3,8,13,.55), rgba(4,11,18,.82));
-}
-.wrapper{
-  position:relative;
-  z-index:1;
-  width:min(1220px,calc(100% - 32px));
-  margin:0 auto;
-  padding:32px 0 48px;
-}
-.topbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:16px;
-  margin-bottom:42px;
-}
-.brand{display:flex;align-items:center;gap:14px}
-.brand-mark{
-  width:52px;height:52px;border-radius:15px;
-  background:linear-gradient(145deg, rgba(83,216,255,.2), rgba(231,186,104,.14));
-  border:1px solid rgba(255,255,255,.14);
-  box-shadow:var(--shadow);
-  position:relative;overflow:hidden
-}
-.brand-mark::before,.brand-mark::after{
-  content:"";position:absolute;border-radius:999px
-}
-.brand-mark::before{
-  width:28px;height:28px;background:rgba(83,216,255,.7);
-  filter:blur(10px);top:7px;left:8px
-}
-.brand-mark::after{
-  width:19px;height:19px;background:rgba(231,186,104,.85);
-  right:8px;bottom:8px;box-shadow:0 0 16px rgba(231,186,104,.55)
-}
-.brand h1{font-size:26px;margin:0;letter-spacing:.12em}
-.brand p{margin:3px 0 0;color:var(--muted);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
-.tag{
-  padding:10px 14px;border-radius:999px;
-  background:rgba(9,22,35,.7);
-  border:1px solid rgba(255,255,255,.09);
-  color:#bcd0de;font-size:12px;backdrop-filter:blur(8px)
-}
-.hero{
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:28px;
-  align-items:stretch;
-  margin-bottom:30px;
-}
-.hero-main,.hero-side{
-  background:linear-gradient(180deg, rgba(12,24,37,.86), rgba(9,18,28,.88));
-  border:1px solid rgba(255,255,255,.09);
-  border-radius:28px;
-  box-shadow:var(--shadow);
-  backdrop-filter:blur(10px)
-}
-.hero-main{
-  padding:34px 34px 28px;
-  position:relative;
-  overflow:hidden
-}
-.hero-main::after{
-  content:"";
-  position:absolute;
-  inset:auto -80px -80px auto;
-  width:260px;height:260px;border-radius:50%;
-  background:radial-gradient(circle, rgba(83,216,255,.14), transparent 68%)
-}
-.kicker{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:8px 12px;border-radius:999px;
-  background:rgba(83,216,255,.08);
-  color:#bfefff;border:1px solid rgba(83,216,255,.15);
-  font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase
-}
-.hero h2{
-  font-size:48px;
-  line-height:1.08;
-  margin:18px 0 12px;
-  max-width:740px
-}
-.hero .lead{
-  font-size:16px;
-  line-height:1.8;
-  color:#d8e6f0;
-  max-width:760px
-}
-.hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-.hero-meta span{
-  padding:9px 12px;border-radius:12px;
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.08);
-  color:#cfe0eb;font-size:13px
-}
-.hero-side{
-  padding:24px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between
-}
-.side-title{
-  font-size:14px;letter-spacing:.11em;
-  text-transform:uppercase;color:#95afc1;margin:0 0 12px
-}
-.stat{padding:16px 0;border-bottom:1px solid rgba(255,255,255,.08)}
-.stat:last-child{border-bottom:0}
-.stat strong{display:block;font-size:18px;margin-bottom:6px}
-.stat span{color:var(--muted);line-height:1.6;font-size:14px}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:20px
-}
-.card{
-  position:relative;
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
-  min-height:380px;
-  padding:26px;
-  border-radius:26px;
-  border:1px solid rgba(255,255,255,.1);
-  background:linear-gradient(180deg, rgba(10,22,34,.86), rgba(9,17,27,.93));
-  box-shadow:var(--shadow);
-  backdrop-filter:blur(10px)
-}
-.card::before{
-  content:"";
-  position:absolute;inset:0;pointer-events:none;opacity:.9
-}
-.card.barnarma::before{
-  background:linear-gradient(135deg, rgba(77,216,255,.14), transparent 38%),
-             radial-gradient(circle at 85% 18%, rgba(68,199,255,.18), transparent 22%)
-}
-.card.lidar::before{
-  background:linear-gradient(135deg, rgba(108,215,214,.15), transparent 40%),
-             radial-gradient(circle at 88% 14%, rgba(86,230,200,.17), transparent 22%)
-}
-.card.memorial::before{
-  background:linear-gradient(135deg, rgba(233,188,111,.14), transparent 40%),
-             radial-gradient(circle at 86% 14%, rgba(232,166,87,.18), transparent 20%)
-}
-.card-top{
-  position:relative;
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  gap:12px;
-  margin-bottom:18px
-}
-.icon{
-  width:56px;height:56px;border-radius:18px;
-  background:rgba(255,255,255,.07);
-  border:1px solid rgba(255,255,255,.1);
-  display:grid;place-items:center;flex:none
-}
-.pill{
-  padding:7px 10px;border-radius:999px;
-  background:rgba(255,255,255,.05);
-  color:#bcd2df;font-size:11px;letter-spacing:.08em;
-  text-transform:uppercase;border:1px solid rgba(255,255,255,.08)
-}
-.card h3{position:relative;font-size:29px;margin:0 0 10px}
-.card p{position:relative;margin:0 0 22px;color:#cbd9e4;line-height:1.75;font-size:14px}
-.features{
-  position:relative;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  margin-bottom:24px
-}
-.features span{
-  display:flex;gap:10px;align-items:flex-start;
-  color:#e7f0f6;font-size:13px
-}
-.features span::before{
-  content:"";
-  width:7px;height:7px;border-radius:50%;
-  background:var(--accent);
-  margin-top:6px;flex:none;
-  box-shadow:0 0 12px rgba(83,216,255,.55)
-}
-.card.memorial .features span::before{
-  background:var(--accent2);
-  box-shadow:0 0 12px rgba(231,186,104,.55)
-}
-.cta{
-  position:relative;
-  margin-top:auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:14px
-}
-.button{
-  display:inline-flex;align-items:center;justify-content:center;
-  min-height:48px;padding:0 18px;border-radius:14px;
-  color:white;text-decoration:none;font-weight:800;letter-spacing:.05em;
-  border:1px solid rgba(255,255,255,.12);
-  background:linear-gradient(90deg, #1497bf, #38c9ef);
-  box-shadow:0 10px 26px rgba(18,163,206,.2)
-}
-.card.memorial .button{
-  background:linear-gradient(90deg,#b98433,#e1ab64);
-  box-shadow:0 10px 26px rgba(190,136,55,.24)
-}
-.arrow{color:#9fdff5;font-size:21px}
-.footer{
-  display:flex;justify-content:space-between;align-items:center;gap:16px;
-  margin-top:28px;padding:18px 2px 0;color:#a6b8c7;font-size:12px
-}
-.footer a{color:#bfefff;text-decoration:none}
-@media (max-width:1080px){
-  .hero{grid-template-columns:1fr}
-  .grid{grid-template-columns:1fr}
-  .card{min-height:unset}
-}
-@media (max-width:720px){
-  .wrapper{width:min(100% - 18px,1220px);padding-top:18px}
-  .topbar{flex-direction:column;align-items:flex-start}
-  .hero-main,.hero-side,.card{border-radius:22px}
-  .hero-main{padding:24px}
-  .hero h2{font-size:34px}
-  .footer{flex-direction:column;align-items:flex-start}
-}
+:root{font-family:Inter,"Segoe UI",Arial,sans-serif;color:#efece4;background:#0a1118}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:#0a1118}
+body:before{content:"";position:fixed;inset:0;background:linear-gradient(90deg,#07111bec,#0b151cc9 60%,#0a1119df),linear-gradient(0deg,#080e16 5%,transparent 75%),url("https://images.unsplash.com/photo-1516900557549-41557d405adf?auto=format&fit=crop&w=2000&q=85") center/cover no-repeat;z-index:-2}
+body:after{content:"";position:fixed;inset:0;opacity:.13;pointer-events:none;background-image:linear-gradient(#cdbf9b33 1px,transparent 1px),linear-gradient(90deg,#cdbf9b33 1px,transparent 1px);background-size:80px 80px;z-index:-1}
+a{color:inherit}.wrap{width:min(1260px,calc(100% - 42px));margin:auto}
+header{display:flex;justify-content:space-between;gap:18px;align-items:center;padding:27px 0;border-bottom:1px solid #b9b6a333}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none}.sigil{height:49px;width:49px;border:1px solid #cdb78b99;display:grid;place-items:center;color:#e9cc95;font-family:Georgia,serif;font-size:30px;box-shadow:inset 0 0 24px #dcb4761a;background:#1b2225}
+.brand-name{font-size:23px;letter-spacing:.22em;font-weight:800}.brand-sub{display:block;font-size:9px;color:#aeb6b6;letter-spacing:.27em;margin-top:4px}
+header nav{display:flex;gap:27px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#b8c4c8}nav a{text-decoration:none}nav a:hover{color:#e8cd98}
+.hero{padding:95px 0 65px;max-width:880px}.eyebrow{display:flex;align-items:center;gap:14px;color:#d0ae72;font-weight:700;font-size:11px;letter-spacing:.3em;text-transform:uppercase}
+.eyebrow:before{content:"";display:block;width:37px;height:1px;background:#d0ae72}
+h1{font:normal clamp(43px,7vw,89px)/1.08 Georgia,"Times New Roman",serif;letter-spacing:-.045em;margin:25px 0}
+h1 em{font-style:normal;color:#dcc18a}.hero p{max-width:670px;line-height:1.9;color:#bac5cb;font-size:16px}
+.hero-foot{display:flex;gap:25px;flex-wrap:wrap;margin-top:34px;color:#aeb9ba;font-size:11px;letter-spacing:.17em;text-transform:uppercase}
+.hero-foot span{border-left:2px solid #bb9a64;padding-left:12px}
+.section-heading{display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid #9caaac44;padding-bottom:17px;margin-bottom:22px;gap:15px}
+.section-heading h2{font-family:Georgia,serif;font-weight:400;font-size:30px;margin:0}.section-heading small{letter-spacing:.18em;color:#aaada6;font-size:10px}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;padding-bottom:76px}
+.card{position:relative;display:flex;flex-direction:column;overflow:hidden;min-height:375px;padding:30px;border:1px solid #a9b7b33b;background:linear-gradient(155deg,#1d2931e6,#0a151de8);box-shadow:0 18px 45px #0006;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-5px);border-color:#d7ba82}
+.card:before{content:"";position:absolute;right:-40px;top:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,#c3a46b21,transparent 70%);pointer-events:none}
+.card:nth-child(1):before{background:radial-gradient(circle,#61afce31,transparent 70%)}.card:nth-child(2):before{background:radial-gradient(circle,#6eb6b633,transparent 70%)}
+.card-no{color:#c6ae7d;font:17px Georgia,serif;letter-spacing:.14em;margin-bottom:55px}.card:nth-child(-n+2) .card-no{color:#80bdce}
+.card h3{font:normal 29px Georgia,serif;margin:0 0 9px;letter-spacing:.025em}.card .sub{font-size:10px;letter-spacing:.19em;text-transform:uppercase;color:#bdab85;margin-bottom:20px}
+.card p{font-size:14px;line-height:1.75;color:#c0c9cb;margin:0 0 30px;flex:1}
+.card a{display:flex;align-items:center;justify-content:space-between;text-decoration:none;border:1px solid #c6ae7c8c;padding:14px 16px;font-size:11px;font-weight:750;letter-spacing:.12em;text-transform:uppercase;color:#f6e5bd;background:#cbb0780d}
+.card a:hover{background:#cbb07829}.card a b{font-size:20px;font-weight:400}
+footer{display:flex;gap:15px;justify-content:space-between;flex-wrap:wrap;border-top:1px solid #9caaac44;padding:24px 0 35px;font-size:11px;letter-spacing:.06em;color:#a5b4b8}
+footer a{text-decoration:none;color:#e8c992}
+@media(max-width:850px){.cards{grid-template-columns:1fr}.card{min-height:260px}.card-no{margin-bottom:25px}.hero{padding:65px 0 50px}header nav{gap:14px}}
+@media(max-width:520px){header nav{display:none}.wrap{width:calc(100% - 30px)}.hero p{font-size:14px}.section-heading h2{font-size:25px}}
 </style>
 </head>
 <body>
-<div class="wrapper">
-  <header class="topbar">
-    <div class="brand">
-      <div class="brand-mark" aria-hidden="true"></div>
-      <div>
-        <h1>USTORIE</h1>
-        <p>Applications & expériences numériques</p>
-      </div>
-    </div>
-    <div class="tag">Technologie · Terrain réel · Mémoire historique</div>
-  </header>
-
-  <section class="hero">
-    <div class="hero-main">
-      <span class="kicker">Portail d’applications</span>
-      <h2>Des outils concrets et immersifs, entre données réelles, visualisation LiDAR et mémoire vivante de 1918.</h2>
-      <p class="lead">UStorie regroupe des projets spécialisés, chacun avec sa propre identité : un outil de production pour l’import de données réelles dans les moteurs modernes, une visualisation rapide du LiDAR France, et une application mémorielle dédiée au secteur Meuse-Argonne pendant le conflit de 1914–1918.</p>
-      <div class="hero-meta">
-        <span>Interface sobre & moderne</span>
-        <span>Accès directs par application</span>
-        <span>Vision terrain + histoire</span>
-      </div>
-    </div>
-
-    <aside class="hero-side">
-      <div>
-        <p class="side-title">Orientation</p>
-        <div class="stat"><strong>BARNARMA</strong><span>Application de bureau pensée pour importer des données du monde réel dans différents moteurs comme Enfusion, UE5 et autres pipelines modernes.</span></div>
-        <div class="stat"><strong>LIDAR-FRANCE</strong><span>Outil simple et rapide pour visualiser le LiDAR HD France et explorer un relief précis directement dans le navigateur.</span></div>
-        <div class="stat"><strong>USSTORI · Meuse-Argonne 1918</strong><span>Application mémorielle dédiée au conflit germano-américain, centrée sur le secteur Meuse-Argonne en 1918.</span></div>
-      </div>
-    </aside>
-  </section>
-
-  <section class="grid" aria-label="Applications">
-    <article class="card barnarma">
-      <div class="card-top">
-        <div class="icon" aria-hidden="true">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16v10H4z"/><path d="M8 20h8"/><path d="M12 16v4"/><path d="M8 10h8"/></svg>
-        </div>
-        <span class="pill">Desktop app</span>
-      </div>
-      <h3>BARNARMA</h3>
-      <p>Application de bureau dédiée à l’importation et au traitement de données réelles pour des moteurs tels que <strong>Enfusion</strong>, <strong>UE5</strong> et d’autres environnements de création avancés.</p>
-      <div class="features">
-        <span>Import de données terrain issues du monde réel</span>
-        <span>Approche orientée production et mapping</span>
-        <span>Passerelle vers des workflows de création modernes</span>
-      </div>
-      <div class="cta">
-        <a class="button" href="https://ustorie.github.io/BARNARMA/">Accéder à BARNARMA</a>
-        <span class="arrow">→</span>
-      </div>
-    </article>
-
-    <article class="card lidar">
-      <div class="card-top">
-        <div class="icon" aria-hidden="true">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 19 5-11 4 8 3-5 6 8H3Z"/><path d="M9 7h.01"/></svg>
-        </div>
-        <span class="pill">Web app</span>
-      </div>
-      <h3>LIDAR-FRANCE</h3>
-      <p>Application web rapide et directe pour consulter le relief LiDAR France, comparer le terrain avec l’imagerie aérienne et naviguer simplement dans les données.</p>
-      <div class="features">
-        <span>Visualisation simple du LiDAR HD France</span>
-        <span>Navigation carte et recherche de lieux</span>
-        <span>Consultation légère depuis un navigateur</span>
-      </div>
-      <div class="cta">
-        <a class="button" href="https://ustorie.github.io/LIDAR-FRANCE/">Ouvrir LiDAR-France</a>
-        <span class="arrow">→</span>
-      </div>
-    </article>
-
-    <article class="card memorial">
-      <div class="card-top">
-        <div class="icon" aria-hidden="true">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18"/><path d="M6 7h12"/><path d="M7 21h10"/><path d="M8 10h8"/></svg>
-        </div>
-        <span class="pill">Mémoire 1918</span>
-      </div>
-      <h3>USSTORI</h3>
-      <p>Application mémorielle représentant le conflit <strong>US / allemand</strong> dans le secteur <strong>Meuse-Argonne</strong> en 1918, pensée comme un espace de transmission et de mise en contexte historique.</p>
-      <div class="features">
-        <span>Projet centré sur le territoire Meuse-Argonne</span>
-        <span>Approche immersive et patrimoniale</span>
-        <span>Mise en valeur du conflit de 1918</span>
-      </div>
-      <div class="cta">
-        <a class="button" href="https://ustorie.github.io/MEUSE_ARGONNE/">Découvrir USSTORI</a>
-        <span class="arrow">→</span>
-      </div>
-    </article>
-  </section>
-
-  <footer class="footer">
-    <span>© UStorie — applications spécialisées, publiées indépendamment.</span>
-    <span>Accès direct : <a href="https://ustorie.github.io/BARNARMA/">BARNARMA</a> · <a href="https://ustorie.github.io/LIDAR-FRANCE/">LIDAR-FRANCE</a> · <a href="https://ustorie.github.io/MEUSE_ARGONNE/">USSTORI</a></span>
-  </footer>
-</div>
-</body>
-</html>b
+<div class="wrap">
+<header><a class="brand" href="/" aria-label="Accueil UStorie"><span class="sigil">U</span><span><strong class="brand-name">USTORIE</strong><small class="brand-sub">TECHNOLOGIE & MÉMOIRE</small></span></a><nav><a href="#projets">LES PROJETS</a><a href="https://ustorie.github.io/BARNARMA/">BARNARMA</a><a href="https://ustorie.github.io/LIDAR-FRANCE/">LIDAR FRANCE</a></nav></header>
+<main>
+<section class="hero"><div class="eyebrow">L’histoire rencontre la technologie</div><h1>Explorer le réel.<br><em>Préserver la mémoire.</em></h1><p>De la cartographie nouvelle génération à la mémoire de la Meuse-Argonne en 1918, découvrez trois applications indépendantes unies par une même ambition : rendre le territoire, ses données et son histoire accessibles autrement.</p><div class="hero-foot"><span>Données géographiques</span><span>Innovation numérique</span><span>Mémoire 1914–1918</span></div></section>
+<section id="projets" aria-label="Les applications"><div class="section-heading"><h2>Trois univers à découvrir</h2><small>01 — 03 / APPLICATIONS</small></div>
+<div class="cards">
+<article class="card"><div class="card-no">01 / CARTOGRAPHIE</div><h3>BARNARMA</h3><div class="sub">Application de bureau · Import terrain</div><p>Une application de bureau pour transformer les données du monde réel en ressources exploitables pour la création d'environnements dans Enfusion, Unreal Engine 5 et d'autres moteurs 3D.</p><a href="https://ustorie.github.io/BARNARMA/">Découvrir BARNARMA <b>↗</b></a></article>
+<article class="card"><div class="card-no">02 / RELIEF</div><h3>LiDAR France</h3><div class="sub">Application web · Relief LiDAR HD</div><p>Explorez simplement et rapidement le relief français grâce aux données LiDAR, à la recherche de lieux et à une visualisation cartographique intuitive.</p><a href="https://ustorie.github.io/LIDAR-FRANCE/">Explorer LiDAR France <b>↗</b></a></article>
+<article class="card"><div class="card-no">03 / MÉMOIRE</div><h3>USSTORI</h3><div class="sub">Meuse-Argonne · 1918</div><p>Une application mémorielle consacrée à l’offensive Meuse-Argonne de 1918 et aux affrontements entre les forces américaines et allemandes. Un regard numérique sur un territoire chargé d’histoire.</p><a href="https://ustorie.github.io/MEUSE_ARGONNE/">Découvrir USSTORI <b>↗</b></a></article>
+</div></section>
+</main>
+<footer><span>© USTORIE · Innovation & patrimoine numérique</span><span>Trois projets, trois expériences indépendantes</span></footer>
+</div></body></html>
