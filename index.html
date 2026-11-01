@@ -2,347 +2,258 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="index,follow">
-<meta name="description" content="THE BARNCOMPAGNIE — applications système : Barnmap, Lidar France et UStorie.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#060f1d">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="description" content="THE BARNCOMPAGNIE : création de maps pour Arma Reforger, environnements de jeu, développement d'outils autour d'Enfusion et Unreal Engine, cartographie et passion pour l'histoire.">
 <meta name="google-adsense-account" content="ca-pub-2649279265159925">
-<title>THE BARNCOMPAGNIE</title>
-
+<link rel="canonical" href="https://ustorie.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="THE BARNCOMPAGNIE">
+<meta property="og:title" content="THE BARNCOMPAGNIE — Fabriquer des mondes, créer des outils">
+<meta property="og:description" content="Maps, environnements temps réel, développement Enfusion et Unreal Engine, outils de cartographie et culture historique.">
+<meta property="og:url" content="https://ustorie.github.io/">
+<title>THE BARNCOMPAGNIE — Création de maps et d'environnements interactifs</title>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2649279265159925" crossorigin="anonymous"></script>
-
 <style>
-:root{
-  --bg:#0b1218;
-  --bg2:#101b24;
-  --card:#132230ee;
-  --line:#294052;
-  --text:#eef4f7;
-  --muted:#9eb0bc;
-  --gold:#d9b16f;
-  --blue:#57c6eb;
-  --shadow:0 20px 50px rgba(0,0,0,.35);
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;
-}
+:root{color-scheme:dark;--base:#050b14;--deep:#071421;--panel:#0c1b2c;--line:rgba(103,195,246,.19);--line2:rgba(110,212,255,.34);--white:#f4faff;--mute:#a3bdd1;--cyan:#6bdcff;--blue:#309bf4;--gold:#f2bb58;--radius:24px}
 *{box-sizing:border-box}
-html,body{margin:0;min-height:100%}
-body{
-  color:var(--text);
-  background:
-    linear-gradient(rgba(8,13,18,.72), rgba(8,13,18,.84)),
-    url('https://images.unsplash.com/photo-1516900557549-41557d405adf?auto=format&fit=crop&w=1800&q=80') center/cover fixed no-repeat,
-    linear-gradient(160deg,var(--bg),var(--bg2));
-}
-.wrapper{
-  width:min(1220px,calc(100% - 32px));
-  margin:auto;
-  padding:28px 0 44px;
-}
-.topbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:16px;
-  margin-bottom:42px;
-}
-.brand{
-  display:flex;
-  align-items:center;
-  gap:14px;
-}
-.brand-mark{
-  width:56px;height:56px;border-radius:16px;
-  background:linear-gradient(145deg, rgba(87,198,235,.18), rgba(217,177,111,.13));
-  border:1px solid rgba(255,255,255,.14);
-  box-shadow:var(--shadow);
-  display:grid;place-items:center;
-  font-size:28px;font-weight:800;color:#fff;
-}
-.brand h1{
-  margin:0;
-  font-size:28px;
-  letter-spacing:.16em;
-}
-.brand p{
-  margin:4px 0 0;
-  color:var(--muted);
-  font-size:12px;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-}
-.hero{
-  background:linear-gradient(180deg, rgba(15,28,39,.88), rgba(11,21,29,.92));
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:28px;
-  padding:34px;
-  box-shadow:var(--shadow);
-  margin-bottom:28px;
-}
-.hero-tag{
-  display:inline-block;
-  padding:8px 12px;
-  border-radius:999px;
-  background:rgba(87,198,235,.08);
-  border:1px solid rgba(87,198,235,.18);
-  color:#c9effa;
-  font-size:12px;
-  font-weight:700;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-}
-.hero h2{
-  margin:18px 0 12px;
-  font-size:48px;
-  line-height:1.08;
-}
-.hero p{
-  max-width:760px;
-  line-height:1.8;
-  color:#d7e2e8;
-  font-size:16px;
-}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:20px;
-}
-.card{
-  position:relative;
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
-  min-height:390px;
-  padding:26px;
-  border-radius:26px;
-  border:1px solid rgba(255,255,255,.1);
-  background:linear-gradient(180deg, rgba(14,25,36,.90), rgba(9,18,27,.94));
-  box-shadow:var(--shadow);
-}
-.card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  opacity:.85;
-}
-.card.map::before{
-  background:radial-gradient(circle at 85% 12%, rgba(87,198,235,.16), transparent 24%);
-}
-.card.lidar::before{
-  background:radial-gradient(circle at 85% 12%, rgba(104,220,201,.17), transparent 24%);
-}
-.card.story::before{
-  background:radial-gradient(circle at 85% 12%, rgba(217,177,111,.18), transparent 24%);
-}
-.logo{
-  width:72px;
-  height:72px;
-  border-radius:18px;
-  background:rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.1);
-  display:grid;
-  place-items:center;
-  margin-bottom:18px;
-}
-.badge{
-  display:inline-block;
-  margin-bottom:14px;
-  padding:6px 10px;
-  border-radius:999px;
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.08);
-  color:#b9cad3;
-  font-size:11px;
-  letter-spacing:.09em;
-  text-transform:uppercase;
-}
-.card h3{
-  margin:0 0 10px;
-  font-size:28px;
-}
-.card .subtitle{
-  color:#e5c387;
-  font-size:13px;
-  letter-spacing:.04em;
-  margin-bottom:14px;
-}
-.card p{
-  margin:0 0 22px;
-  color:#c9d6de;
-  line-height:1.75;
-  font-size:14px;
-}
-.features{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  margin-bottom:24px;
-}
-.features span{
-  display:flex;
-  gap:10px;
-  align-items:flex-start;
-  font-size:13px;
-  color:#e7eff4;
-}
-.features span::before{
-  content:"";
-  width:7px;height:7px;
-  border-radius:50%;
-  background:var(--blue);
-  margin-top:6px;
-  flex:none;
-}
-.card.story .features span::before{
-  background:var(--gold);
-}
-.cta{
-  margin-top:auto;
-}
-.button{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:48px;
-  width:100%;
-  padding:0 18px;
-  border-radius:14px;
-  color:#fff;
-  text-decoration:none;
-  font-weight:800;
-  letter-spacing:.05em;
-  border:1px solid rgba(255,255,255,.12);
-  background:linear-gradient(90deg, #189fc8, #45cbef);
-}
-.card.story .button{
-  background:linear-gradient(90deg, #b98334, #dfab66);
-}
-.footer{
-  margin-top:26px;
-  padding-top:18px;
-  border-top:1px solid rgba(255,255,255,.08);
-  color:#9fb0ba;
-  font-size:12px;
-}
-svg{display:block}
-@media (max-width:1020px){
-  .grid{grid-template-columns:1fr}
-  .card{min-height:unset}
-}
-@media (max-width:720px){
-  .wrapper{width:min(100% - 18px,1220px)}
-  .topbar{flex-direction:column;align-items:flex-start}
-  .hero{padding:24px}
-  .hero h2{font-size:34px}
-}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{margin:0;background:var(--base);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--white);line-height:1.65;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-2;background:radial-gradient(ellipse at 14% 8%,rgba(18,91,154,.25),transparent 38%),radial-gradient(ellipse at 96% 24%,rgba(12,112,172,.15),transparent 40%),linear-gradient(155deg,#060d18,#081523 55%,#040a13)}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.22;background-image:linear-gradient(#8bcfff18 1px,transparent 1px),linear-gradient(90deg,#8bcfff18 1px,transparent 1px);background-size:56px 56px;mask-image:linear-gradient(#000,transparent 94%)}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid #a1efff;outline-offset:4px}
+button{font:inherit}
+.wrap{width:min(1230px,calc(100% - 48px));margin-inline:auto}
+.skip{position:absolute;top:-80px;left:18px;background:var(--cyan);color:#05101d;z-index:90;padding:10px 16px}
+.skip:focus{top:14px}
+.top{z-index:10;position:sticky;top:0;background:#06101ce0;backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.topin{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+.brand{display:flex;align-items:center;gap:13px}
+.logo{width:53px;height:53px;display:grid;place-items:center;border:1px solid #8ee6ff60;border-radius:13px;background:linear-gradient(135deg,#123453,#051320);box-shadow:0 0 24px #2b9aff2a}
+.logo svg{width:43px;height:43px}
+.brand-name{font-size:18px;font-weight:850;letter-spacing:.17em;line-height:1.15}
+.brand-tag{font-size:10px;letter-spacing:.27em;color:#7fcde9;text-transform:uppercase;margin-top:7px}
+.nav{display:flex;align-items:center;gap:25px}
+.nav a{font-size:12px;color:#c5dae9;font-weight:700;letter-spacing:.055em;transition:color .2s}
+.nav a:hover{color:var(--cyan)}
+.nav .nav-contact{border:1px solid #5ed1ff67;border-radius:9px;color:#a5edff;padding:11px 15px;background:#0a2c46}
+.hero{padding:93px 0 70px;position:relative}
+.hero-inner{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);align-items:center;gap:66px}
+.eyebrow{color:var(--cyan);font-size:11px;font-weight:900;letter-spacing:.22em;text-transform:uppercase;display:flex;gap:12px;align-items:center}
+.eyebrow:before{content:"";width:34px;height:1px;background:var(--cyan);box-shadow:0 0 16px var(--cyan)}
+.hero h1{font-size:clamp(46px,5.6vw,78px);font-weight:850;line-height:1.065;letter-spacing:-.055em;margin:27px 0 22px}
+.hero h1 .line{display:block}
+.hero h1 em{color:#75dcff;font-style:normal;text-shadow:0 0 30px #12b6ff33}
+.hero .lead{color:#bed3e4;max-width:660px;font-size:16px;line-height:1.92;margin:0}
+.hero-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:30px 0 35px}
+.btn{min-height:51px;display:inline-flex;justify-content:center;align-items:center;gap:12px;padding:0 21px;border:1px solid transparent;border-radius:8px;font-size:12px;letter-spacing:.075em;text-transform:uppercase;font-weight:850;transition:transform .18s,filter .18s,background .18s}
+.btn:hover{transform:translateY(-2px)}
+.primary{background:linear-gradient(100deg,#6cdbff,#279fea);color:#03101b;box-shadow:0 10px 35px #2eb5fa40}
+.secondary{color:#d8efff;background:#0d253a;border-color:#326388}
+.hero-strip{display:flex;flex-wrap:wrap;gap:9px}
+.chip{font-size:10px;font-weight:760;letter-spacing:.1em;color:#9fc2d8;border:1px solid #3157758a;padding:7px 12px;background:#081827;border-radius:5px;text-transform:uppercase}
+.visual{position:relative;min-height:510px;border:1px solid #4b94bc78;border-radius:18px;overflow:hidden;background:linear-gradient(148deg,#142c44,#061320 78%);box-shadow:0 35px 90px #0007,0 0 60px #10a6ff12}
+.visual:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(145deg,#b1eaff10,transparent 33%,#30baff0a)}
+.visual-top{height:50px;border-bottom:1px solid #2c6084;display:flex;align-items:center;justify-content:space-between;padding:0 20px;background:#061724ce;position:relative;z-index:2}
+.visual-top strong{font-size:10px;color:#d0f4ff;letter-spacing:.19em}
+.dotgroup{display:flex;gap:7px}.dotgroup i{width:7px;height:7px;border-radius:50%;background:#3d83a3}.dotgroup i:first-child{background:#65e1ff}
+.visual-map{height:382px;position:relative;display:grid;place-items:center;overflow:hidden;background:radial-gradient(ellipse at center,#16476c66,transparent 70%)}
+.visual-map svg{width:96%;max-height:365px;filter:drop-shadow(0 0 20px #33baff40)}
+.gridline{stroke:#70c9ff25;stroke-width:1}.contour{fill:none;stroke:#4bbafc7c;stroke-width:1.25}
+.visual-btm{border-top:1px solid #2a607f;padding:17px 20px;display:flex;align-items:center;justify-content:space-between;gap:15px;font-size:10px;letter-spacing:.16em;color:#a7cbdc;background:#051421cc}
+.status{display:flex;align-items:center;gap:9px;color:#aaf0d5}.status:before{content:"";width:6px;height:6px;background:#5fefc2;border-radius:50%;box-shadow:0 0 10px #5fefc2}
+.visual-label{position:absolute;bottom:54px;left:20px;color:#b2dcf1;font-size:10px;letter-spacing:.15em;background:#041521c9;border:1px solid #286389;padding:9px 14px;z-index:2}
+.section{padding:78px 0;position:relative}
+.section-dark{background:linear-gradient(180deg,#071321cf,#06111ecf);border-top:1px solid #2d628021;border-bottom:1px solid #2d628021}
+.section-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.75fr);gap:40px;align-items:end;margin-bottom:34px}
+.kicker{color:var(--cyan);font-size:11px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;margin-bottom:14px}
+h2{font-size:clamp(30px,3.2vw,46px);letter-spacing:-.04em;line-height:1.15;margin:0}
+.intro{color:#a7c0d3;font-size:15px;line-height:1.88;margin:0}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.card{padding:29px 27px;min-height:310px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(155deg,#102339db,#081725f0);position:relative;overflow:hidden;box-shadow:0 20px 50px #0002}
+.card:before{content:"";position:absolute;left:0;top:0;width:60px;height:2px;background:#5dcfff;box-shadow:0 0 15px #63e3ff}
+.card-no{font-size:11px;letter-spacing:.17em;font-weight:900;color:#5acaff}
+.card h3{font-size:22px;letter-spacing:-.025em;margin:31px 0 12px}
+.card p,.card li{font-size:14px;color:#afc5d6;line-height:1.85}
+.card p{margin:0}.card ul{padding-left:19px;margin:13px 0 0}
+.card li{margin:5px 0}
+.article-layout{display:grid;grid-template-columns:1.13fr .87fr;gap:22px}
+.article{border:1px solid var(--line);padding:35px;border-radius:14px;background:#0c1d2e}
+.article h3{font-size:24px;margin:0 0 18px}
+.article p{color:#acc5d8;font-size:15px;line-height:1.95;margin:0 0 17px}
+.article p:last-child{margin-bottom:0}
+.technical{padding:32px;border-radius:14px;border:1px solid #3b89b564;background:linear-gradient(140deg,#10304a,#071929)}
+.technical .small{color:#6fe0ff;font-size:11px;font-weight:800;letter-spacing:.15em}
+.technical h3{font-size:25px;margin:13px 0 18px}
+.techitem{padding:17px 0;border-top:1px solid #3676976b}
+.techitem strong{display:block;font-size:15px;color:#e2f6ff;margin-bottom:4px}
+.techitem span{display:block;font-size:13px;color:#acc3d5;line-height:1.7}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:34px}
+.step{padding:23px 20px;border:1px solid var(--line);background:#0c2031;border-radius:11px}
+.step b{display:block;color:#76deff;font-size:27px;line-height:1;font-weight:750;margin-bottom:21px}
+.step h3{font-size:17px;margin:0 0 8px}
+.step p{font-size:13px;color:#abc4d4;margin:0;line-height:1.8}
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.project{border:1px solid #35627d9e;border-radius:14px;overflow:hidden;background:linear-gradient(150deg,#102a41,#071724);min-height:300px;display:flex;flex-direction:column}
+.project-icon{height:105px;position:relative;overflow:hidden;border-bottom:1px solid #2b688a;display:flex;align-items:center;padding:25px;font-size:45px;font-weight:900;color:#7cdeff;letter-spacing:-.05em;background:radial-gradient(circle at 75% 25%,#2c93ce4f,transparent 44%),repeating-linear-gradient(25deg,#7cd7ff0b 0 1px,transparent 1px 18px)}
+.project-body{padding:24px;display:flex;flex-direction:column;flex:1}
+.project .label{font-size:10px;letter-spacing:.16em;color:#62d5fb;text-transform:uppercase;font-weight:900}
+.project h3{margin:9px 0 11px;font-size:24px}
+.project p{font-size:13px;color:#a9c4d7;line-height:1.9;margin:0 0 24px}
+.project a{margin-top:auto;color:#8deaff;font-size:12px;font-weight:900;letter-spacing:.07em}
+.project a:hover{text-decoration:underline}
+.history{border:1px solid #3a6680aa;border-radius:17px;overflow:hidden;background:linear-gradient(100deg,#0c253b,#081622);display:grid;grid-template-columns:.65fr 1fr}
+.history-art{min-height:320px;display:grid;place-items:center;border-right:1px solid #3a6880;position:relative;background:radial-gradient(circle at center,#27699463,transparent 70%)}
+.history-art svg{width:min(85%,250px);height:auto}
+.history-copy{padding:44px;align-self:center}
+.history-copy h2{margin:0 0 18px}
+.history-copy p{font-size:15px;color:#abc4d4;line-height:1.95}
+.history-copy p:last-child{margin-bottom:0}
+.contact{padding:80px 0 96px}
+.contact-panel{border:1px solid #4e9fc2aa;border-radius:18px;padding:55px 60px;display:grid;grid-template-columns:1.12fr .88fr;align-items:center;gap:35px;background:radial-gradient(ellipse at 90% 30%,#1356826b,transparent 40%),linear-gradient(120deg,#122b40,#071b2c);box-shadow:0 30px 75px #0004}
+.contact-panel h2{margin:0 0 15px}
+.contact-panel p{margin:0;color:#b7d3e4;font-size:15px;line-height:1.85}
+.mail{padding:24px;border:1px solid #468cafa1;background:#071928cf;border-radius:11px}
+.mail .small{font-size:10px;color:#8bdcf6;letter-spacing:.14em;font-weight:850;margin-bottom:10px}
+.mail a{font-size:clamp(16px,1.7vw,22px);font-weight:850;color:#effaff;overflow-wrap:anywhere}
+.mail a:hover{text-decoration:underline}
+.mail p{font-size:12px;margin-top:14px;color:#91aaba}
+footer{border-top:1px solid #2c66804a;background:#040e18}
+.foot{min-height:99px;display:flex;justify-content:space-between;align-items:center;gap:25px;flex-wrap:wrap}
+.foot strong{font-size:13px;letter-spacing:.17em}
+.foot small{display:block;color:#819eaf;font-size:11px;margin-top:7px}
+.foot-links{display:flex;gap:20px;flex-wrap:wrap}
+.foot a{font-size:12px;color:#b8d6e5}.foot a:hover{color:#75e0ff}
+@media(max-width:1020px){.hero-inner{gap:28px}.nav{gap:12px}.cards,.projects{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.wrap{width:min(100% - 30px,1230px)}.topin{min-height:72px;flex-wrap:wrap;padding:12px 0;gap:14px}.brand-name{font-size:15px}.brand-tag{font-size:9px}.logo{width:43px;height:43px}.logo svg{width:35px}.nav{width:100%;justify-content:space-between;gap:8px;flex-wrap:wrap}.nav a{font-size:10px}.nav .nav-contact{padding:6px 9px}.hero{padding:50px 0 48px}.hero-inner,.section-head,.article-layout,.history,.contact-panel{grid-template-columns:1fr}.hero h1{font-size:clamp(42px,9vw,62px)}.visual{min-height:440px}.visual-map{height:312px}.section{padding:51px 0}.section-head{gap:16px}.cards,.projects{grid-template-columns:1fr}.card{min-height:0}.history-art{min-height:220px;border-right:0;border-bottom:1px solid #3a6880}.history-copy{padding:30px}.contact{padding:48px 0}.contact-panel{padding:27px}.foot{padding:25px 0}}
+@media(max-width:420px){.steps{grid-template-columns:1fr}.visual{min-height:400px}.visual-map{height:275px}.hero h1{font-size:41px}.hero-strip{gap:6px}.chip{font-size:9px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-<div class="wrapper">
+<a class="skip" href="#contenu">Aller au contenu</a>
+<header class="top">
+ <div class="wrap topin">
+  <a href="./" class="brand" aria-label="Accueil THE BARNCOMPAGNIE">
+   <span class="logo"><svg viewBox="0 0 52 52" fill="none" aria-hidden="true"><path d="M3 41 20 11l6 12 6-10 17 28" stroke="#a5edff" stroke-width="4" stroke-linejoin="round"/><path d="m12 41 9-16 5 8 6-10 10 18" stroke="#329cda" stroke-width="4" stroke-linejoin="round"/><path d="M8 46h37" stroke="#71daff" stroke-width="2"/></svg></span>
+   <span><span class="brand-name">THE BARNCOMPAGNIE</span><span class="brand-tag">Digital terrain & creative tools</span></span>
+  </a>
+  <nav class="nav" aria-label="Navigation principale">
+   <a href="#expertises">Expertises</a><a href="#approche">Notre approche</a><a href="#projets">Projets</a><a href="#histoire">Inspiration</a><a class="nav-contact" href="#contact">Contact</a>
+  </nav>
+ </div>
+</header>
+<main id="contenu">
+<section class="hero">
+ <div class="wrap hero-inner">
+  <div>
+   <div class="eyebrow">Création • développement • exploration</div>
+   <h1><span class="line">Nous imaginons</span><span class="line"><em>des mondes.</em></span>Nous créons les outils pour les construire.</h1>
+   <p class="lead">THE BARNCOMPAGNIE rassemble une démarche indépendante autour de la création de maps, du développement d'environnements de jeu et des outils numériques qui simplifient la production. De la cartographie réelle au terrain virtuel, chaque projet cherche à réunir précision technique, liberté créative et passion de l'exploration.</p>
+   <div class="hero-actions"><a href="#expertises" class="btn primary">Découvrir notre univers <span aria-hidden="true">↗</span></a><a href="#projets" class="btn secondary">Explorer les projets <span aria-hidden="true">→</span></a></div>
+   <div class="hero-strip" aria-label="Domaines"><span class="chip">Arma Reforger</span><span class="chip">Enfusion Engine</span><span class="chip">Unreal Engine</span><span class="chip">Cartographie & LiDAR</span></div>
+  </div>
+  <div class="visual" aria-label="Illustration technique de courbes de niveau et d'un terrain numérique">
+   <div class="visual-top"><strong>TERRAIN / REAL WORLD DATA</strong><span class="dotgroup"><i></i><i></i><i></i></span></div>
+   <div class="visual-map">
+    <svg viewBox="0 0 600 420" fill="none" role="img" aria-label="Représentation stylisée d'un relief numérisé">
+      <defs><linearGradient id="hill" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#38d4ff" stop-opacity=".38"/><stop offset="1" stop-color="#174c80" stop-opacity=".08"/></linearGradient><radialGradient id="spot"><stop stop-color="#1abfff" stop-opacity=".22"/><stop offset="1" stop-color="#1abfff" stop-opacity="0"/></radialGradient></defs>
+      <ellipse cx="300" cy="205" rx="280" ry="200" fill="url(#spot)"/>
+      <g class="gridline"><path d="M0 10V410" /><path d="M56 10V410" /><path d="M112 10V410" /><path d="M168 10V410" /><path d="M224 10V410" /><path d="M280 10V410" /><path d="M336 10V410" /><path d="M392 10V410" /><path d="M448 10V410" /><path d="M504 10V410" /><path d="M560 10V410" /><path d="M616 10V410" /><path d="M10 0H590" /><path d="M10 50H590" /><path d="M10 100H590" /><path d="M10 150H590" /><path d="M10 200H590" /><path d="M10 250H590" /><path d="M10 300H590" /><path d="M10 350H590" /><path d="M10 400H590" /></g>
+      <g transform="translate(0 25)"><path d="M49 260 162 187 245 209 333 95 440 156 550 250 452 304 334 246 245 330 118 312Z" fill="url(#hill)" stroke="#60d9ff" stroke-opacity=".5"/><path d="m162 187 83 22 88-114 107 61 110 94-98 54-118-58-89 84-127-18-69-52" stroke="#4aaddf" stroke-opacity=".7"/><path d="m162 187 83 22 88-114m-88 114 89 37 106-90m-106 90 118 58m-334 8 127 18 89-84" stroke="#91e7ff" stroke-opacity=".43"/><path d="m333 95 1 151" stroke="#80dfff" stroke-dasharray="5 6"/><circle cx="333" cy="95" r="4" fill="#b7faff"/></g>
+      <g class="contour"><path d="M36 60 C 128 -16 190 128 299 57 S 465 -14 556 69" />
+<path d="M36 87 C 128 11 190 155 299 84 S 465 13 556 96" />
+<path d="M36 114 C 128 38 190 182 299 111 S 465 40 556 123" />
+<path d="M36 141 C 128 65 190 209 299 138 S 465 67 556 150" />
+<path d="M36 168 C 128 92 190 236 299 165 S 465 94 556 177" />
+<path d="M36 195 C 128 119 190 263 299 192 S 465 121 556 204" />
+<path d="M36 222 C 128 146 190 290 299 219 S 465 148 556 231" />
+<path d="M36 249 C 128 173 190 317 299 246 S 465 175 556 258" />
+<path d="M36 276 C 128 200 190 344 299 273 S 465 202 556 285" />
+<path d="M36 303 C 128 227 190 371 299 300 S 465 229 556 312" />
+<path d="M36 330 C 128 254 190 398 299 327 S 465 256 556 339" /></g>
+      <rect x="26" y="26" width="548" height="368" stroke="#8bd4ff" stroke-opacity=".25" stroke-dasharray="4 8"/>
+      <path d="M26 46V26H46M554 26h20v20M26 374v20h20M554 394h20v-20" stroke="#b0edff" stroke-width="2"/>
+    </svg>
+    <div class="visual-label">TOPOGRAPHY • DIGITAL WORLDS</div>
+   </div>
+   <div class="visual-btm"><span>DES DONNÉES RÉELLES AUX UNIVERS INTERACTIFS</span><span class="status">ENVIRONNEMENT NUMÉRIQUE</span></div>
+  </div>
+ </div>
+</section>
 
-  <header class="topbar">
-    <div class="brand">
-      <div class="brand-mark">B</div>
-      <div>
-        <h1>THE BARNCOMPAGNIE</h1>
-        <p>Application systeme</p>
-      </div>
-    </div>
-  </header>
+<section id="expertises" class="section section-dark">
+ <div class="wrap">
+  <div class="section-head"><div><div class="kicker">01 / Domaines de création</div><h2>La technique au service de l'imagination.</h2></div><p class="intro">Nous explorons les étapes qui relient une idée de terrain à un environnement interactif : données géographiques, mise en forme du relief, intégration dans un moteur et développement d'outils adaptés aux créateurs.</p></div>
+  <div class="cards">
+   <article class="card"><span class="card-no">01 — GAME ENVIRONMENTS</span><h3>Création de maps & level design</h3><p>La conception d'une carte dépasse le simple assemblage d'objets. Elle demande une bonne lecture des volumes, des circulations, des échelles et des usages de jeu.</p><ul><li>Reliefs, terrains et zones jouables</li><li>Réseaux routiers, végétation et surfaces</li><li>Lisibilité et cohérence du monde créé</li></ul></article>
+   <article class="card"><span class="card-no">02 — GAME ENGINES</span><h3>Enfusion & Unreal Engine</h3><p>Le travail avec des moteurs temps réel implique des contraintes concrètes : formats d'importation, dimensions des terrains, matériaux, performances et organisation des ressources.</p><ul><li>Flux de travail pour Arma Reforger</li><li>Outils et scripts autour d'Enfusion</li><li>Exploration des pipelines Unreal Engine</li></ul></article>
+   <article class="card"><span class="card-no">03 — CREATIVE SOFTWARE</span><h3>Développement d'outils spécialisés</h3><p>Nous privilégions les outils qui rendent les opérations techniques plus intuitives : préparer les données, réduire les manipulations répétitives et conserver le contrôle créatif.</p><ul><li>Automatisation de tâches de mapping</li><li>Import et export de données de terrain</li><li>Interfaces orientées production</li></ul></article>
+  </div>
+ </div>
+</section>
 
-  <section class="hero">
-    <span class="hero-tag">Portail d’applications</span>
-    <h2>Des outils dédiés au terrain réel, au LiDAR et à la mémoire historique.</h2>
-    <p>
-      THE BARNCOMPAGNIE regroupe trois applications spécialisées : <strong>BARNMAP</strong>,
-      pour importer des données du monde réel dans différents moteurs, <strong>LIDARFRANCE</strong>,
-      pour visualiser rapidement le relief LiDAR en France, et <strong>USTORIE</strong>,
-      une application historique autour de la Meuse-Argonne au jour le jour.
-    </p>
-  </section>
+<section id="approche" class="section">
+ <div class="wrap">
+  <div class="section-head"><div><div class="kicker">02 / Méthode et savoir-faire</div><h2>Du territoire à l'environnement de jeu.</h2></div><p class="intro">Le terrain virtuel peut prendre appui sur de vraies données géographiques ou être entièrement imaginé. Dans les deux cas, il faut transformer une source brute en un espace exploitable, lisible et cohérent.</p></div>
+  <div class="article-layout">
+   <article class="article">
+     <h3>Créer une carte exploitable, pas seulement une belle image</h3>
+     <p>Une carte de jeu est un système de relations entre le sol, les routes, la végétation, les bâtiments, les points de passage et la manière dont les joueurs se déplacent. La cohérence entre ces éléments contribue autant à l'immersion qu'à la qualité visuelle.</p>
+     <p>Lorsqu'une création part du monde réel, les sources altimétriques peuvent fournir une première forme de relief. Les images satellites renseignent sur l'occupation des sols, tandis que les données vectorielles servent de repères pour les voies, les zones boisées ou les surfaces d'eau. Ces sources doivent ensuite être préparées pour correspondre à la grille du moteur ciblé.</p>
+     <p>Dans Enfusion, l'alignement entre heightmap, image satellite et géométrie du terrain est essentiel. Un bon workflow tient compte de la résolution, de l'échelle et de l'organisation des fichiers pour éviter les décalages lors de l'intégration. C'est précisément le genre de difficulté que les outils de création cherchent à simplifier.</p>
+   </article>
+   <aside class="technical">
+    <span class="small">PIPELINE / POINTS CLÉS</span><h3>Le travail derrière une map</h3>
+    <div class="techitem"><strong>01 · Préparation géographique</strong><span>Définir la zone d'intérêt, les dimensions et les données nécessaires au projet.</span></div>
+    <div class="techitem"><strong>02 · Terrain & matériaux</strong><span>Adapter le relief, les textures et les masques de surface au fonctionnement du moteur.</span></div>
+    <div class="techitem"><strong>03 · Réseaux & environnement</strong><span>Ajouter routes, forêts et éléments naturels en respectant leur implantation.</span></div>
+    <div class="techitem"><strong>04 · Vérification dans le moteur</strong><span>Contrôler l'échelle, les performances, la lisibilité et les retouches en éditeur.</span></div>
+   </aside>
+  </div>
+  <div class="steps" aria-label="Processus de création">
+   <div class="step"><b>01</b><h3>Observer</h3><p>Comprendre l'objectif, les usages prévus et les contraintes du terrain à réaliser.</p></div>
+   <div class="step"><b>02</b><h3>Préparer</h3><p>Organiser les sources, résolutions, matériaux et formats nécessaires.</p></div>
+   <div class="step"><b>03</b><h3>Construire</h3><p>Créer les reliefs, les couches et les éléments qui composent l'environnement.</p></div>
+   <div class="step"><b>04</b><h3>Affiner</h3><p>Tester, corriger et ajuster l'ensemble pour une intégration cohérente.</p></div>
+  </div>
+ </div>
+</section>
 
-  <section class="grid">
+<section id="projets" class="section section-dark">
+ <div class="wrap">
+  <div class="section-head"><div><div class="kicker">03 / Réalisations & expérimentations</div><h2>Des projets pour explorer, créer et comprendre.</h2></div><p class="intro">Nos projets réunissent des approches différentes : création de cartes dans un moteur de jeu, exploration de reliefs réels et transmission d'une passion pour l'histoire. Chaque outil possède son propre site et ses propres fonctions.</p></div>
+  <div class="projects">
+   <article class="project"><div class="project-icon" aria-hidden="true">B<span style="font-size:17px;color:#ffffff80;align-self:end;margin:0 0 12px 7px">/ MAP</span></div><div class="project-body"><div class="label">Logiciel • création de maps</div><h3>BARNMAP</h3><p>Un outil pour sélectionner une zone du monde réel, préparer des données de terrain et faciliter leur exploitation dans Enfusion. Heightmaps, fond satellite, routes, zones boisées, eaux et surfaces accompagnent le travail de mapping.</p><a href="/BARNARMA/" aria-label="Découvrir le logiciel BARNMAP">DÉCOUVRIR BARNMAP ↗</a></div></article>
+   <article class="project"><div class="project-icon" aria-hidden="true">L<span style="font-size:17px;color:#ffffff80;align-self:end;margin:0 0 12px 7px">/ HD</span></div><div class="project-body"><div class="label">Webapp • relief et cartographie</div><h3>LIDAR-FRANCE</h3><p>Une interface cartographique dédiée à l'observation du relief. Elle permet de rechercher des lieux, parcourir la carte et étudier les formes du terrain à partir de couches géographiques, notamment des données LiDAR.</p><a href="/LIDAR-FRANCE/" aria-label="Découvrir l'application LIDAR-FRANCE">EXPLORER LE RELIEF ↗</a></div></article>
+   <article class="project"><div class="project-icon" aria-hidden="true">H<span style="font-size:17px;color:#ffffff80;align-self:end;margin:0 0 12px 7px">/ MEM</span></div><div class="project-body"><div class="label">Projet éditorial • culture historique</div><h3>Histoire & mémoire</h3><p>Un volet consacré à la découverte et à la transmission historique. La recherche documentaire, la narration chronologique et les supports visuels permettent de proposer une autre manière de rencontrer le passé.</p><a href="/MEUSE_ARGONNE/" aria-label="Découvrir le projet historique">DÉCOUVRIR LE PROJET ↗</a></div></article>
+  </div>
+ </div>
+</section>
 
-    <article class="card map">
-      <div class="logo">
-        <svg width="42" height="42" viewBox="0 0 42 42" fill="none" aria-hidden="true">
-          <rect x="4" y="6" width="34" height="28" rx="6" stroke="#57C6EB" stroke-width="2"/>
-          <path d="M14 10V32M28 10V32M4 18H38M4 26H38" stroke="#57C6EB" stroke-width="2"/>
-          <circle cx="21" cy="21" r="4" fill="#D9B16F"/>
-        </svg>
-      </div>
-      <span class="badge">Desktop app</span>
-      <h3>BARNMAP</h3>
-      <div class="subtitle">Import monde réel & moteurs 3D</div>
-      <p>
-        Application système pour importer et préparer des données du monde réel
-        vers différents moteurs comme <strong>Enfusion</strong>, <strong>UE5</strong> et d’autres environnements.
-      </p>
-      <div class="features">
-        <span>Import de données terrain</span>
-        <span>Workflow orienté mapping</span>
-        <span>Outil de production moderne</span>
-      </div>
-      <div class="cta">
-        <a class="button" href="https://ustorie.github.io/BARNARMA/">Ouvrir BARNMAP</a>
-      </div>
-    </article>
+<section id="histoire" class="section">
+ <div class="wrap">
+  <div class="history">
+   <div class="history-art" aria-hidden="true">
+    <svg viewBox="0 0 240 240" fill="none"><circle cx="120" cy="120" r="91" stroke="#62dfff" stroke-opacity=".7"/><circle cx="120" cy="120" r="67" stroke="#5cbefa" stroke-opacity=".3" stroke-dasharray="4 9"/><circle cx="120" cy="120" r="41" stroke="#72d6f8" stroke-opacity=".5"/><path d="M120 38v25m0 114v25M38 120h25m114 0h25M59 59l18 18m86 86 18 18M181 59l-18 18M77 163l-18 18" stroke="#92e8ff" stroke-width="2"/><path d="m120 79 27 26-7 47-40 9-24-40 44-42Z" fill="#4cbdfc" fill-opacity=".15" stroke="#7bdbff" stroke-width="2"/><path d="m120 79 0 41-44 1m44-1 20 32" stroke="#8ce6ff" stroke-opacity=".6"/><circle cx="120" cy="120" r="5" fill="#a4f4ff"/></svg>
+   </div>
+   <div class="history-copy">
+    <div class="kicker">04 / Inspiration</div>
+    <h2>La passion de l'histoire nourrit notre créativité.</h2>
+    <p>À côté du développement et de la cartographie, l'histoire occupe une place particulière dans notre univers. Comprendre les techniques, les paysages, les objets et les témoignages d'autres époques ouvre de nouvelles perspectives pour concevoir des environnements crédibles et porteurs de sens.</p>
+    <p>Cette passion s'exprime aussi dans des projets de mémoire et de transmission. Nous aimons faire dialoguer recherche, représentation visuelle et outils numériques, sans limiter cette curiosité à une période ou à un territoire particulier.</p>
+   </div>
+  </div>
+ </div>
+</section>
 
-    <article class="card lidar">
-      <div class="logo">
-        <svg width="42" height="42" viewBox="0 0 42 42" fill="none" aria-hidden="true">
-          <path d="M5 30L13 18L19 24L24 15L37 30H5Z" stroke="#57C6EB" stroke-width="2" fill="rgba(87,198,235,.08)"/>
-          <path d="M7 34H35" stroke="#57C6EB" stroke-width="2"/>
-          <path d="M10 9C15 12 27 12 32 9" stroke="#D9B16F" stroke-width="2"/>
-        </svg>
-      </div>
-      <span class="badge">Web app</span>
-      <h3>LIDARFRANCE</h3>
-      <div class="subtitle">Visualisation rapide du relief</div>
-      <p>
-        Application simple et rapide de visualisation LiDAR France, pensée pour
-        consulter le relief, rechercher des lieux et explorer facilement les données.
-      </p>
-      <div class="features">
-        <span>Visualisation LiDAR HD</span>
-        <span>Lecture rapide du relief</span>
-        <span>Navigation web légère</span>
-      </div>
-      <div class="cta">
-        <a class="button" href="https://ustorie.github.io/LIDAR-FRANCE/">Ouvrir LIDARFRANCE</a>
-      </div>
-    </article>
-
-    <article class="card story">
-      <div class="logo">
-        <svg width="42" height="42" viewBox="0 0 42 42" fill="none" aria-hidden="true">
-          <path d="M13 28V14L21 10L29 14V28" stroke="#D9B16F" stroke-width="2"/>
-          <path d="M17 18H25M17 22H25" stroke="#D9B16F" stroke-width="2"/>
-          <circle cx="21" cy="31" r="3" fill="#D9B16F"/>
-        </svg>
-      </div>
-      <span class="badge">Mémoire WW1</span>
-      <h3>USTORIE</h3>
-      <div class="subtitle">Histoire Meuse-Argonne au jour le jour</div>
-      <p>
-        Application historique et mémorielle représentant la Meuse-Argonne,
-        avec une approche centrée sur le conflit et son suivi au jour le jour.
-      </p>
-      <div class="features">
-        <span>Mémoire du front 1914–1918</span>
-        <span>Approche immersive et historique</span>
-        <span>Univers dédié à la Meuse-Argonne</span>
-      </div>
-      <div class="cta">
-        <a class="button" href="https://ustorie.github.io/MEUSE_ARGONNE/">Ouvrir USTORIE</a>
-      </div>
-    </article>
-
-  </section>
-
-  <footer class="footer">
-    © THE BARNCOMPAGNIE — applications publiées indépendamment.
-  </footer>
-
-</div>
+<section id="contact" class="contact">
+ <div class="wrap"><div class="contact-panel"><div><div class="kicker">Échanger avec nous</div><h2>Un projet, une question ou une idée ?</h2><p>Une question sur la création d'environnements, les outils de mapping ou un projet présenté ici ? Vous pouvez contacter THE BARNCOMPAGNIE par courrier électronique.</p></div><div class="mail"><div class="small">CONTACT OFFICIEL</div><a href="mailto:thebarncompagnie@gmail.com">thebarncompagnie@gmail.com</a><p>Contact par e-mail. Aucun formulaire de collecte sur cette page.</p></div></div></div>
+</section>
+</main>
+<footer><div class="wrap foot"><div><strong>THE BARNCOMPAGNIE</strong><small>Création d'environnements interactifs · © 2026</small></div><nav class="foot-links" aria-label="Informations et liens"><a href="./confidentialite.html">Confidentialité</a><a href="./mentions-legales.html">Mentions légales</a><a href="mailto:thebarncompagnie@gmail.com">Contact</a><a href="#contenu">Retour en haut ↑</a></nav></div></footer>
 </body>
 </html>
